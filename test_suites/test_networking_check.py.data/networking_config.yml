@@ -1,0 +1,111 @@
+%YAML 1.2
+---
+
+#Networking related command
+check_ips: 'ip add show'
+add_route: '10.0.0.0/8'
+restart_netwrok_service: 'systemctl restart network'
+check_ifcfg: 'ls /etc/sysconfig/network-scripts/'
+cat_ifcfg: 'cat /etc/sysconfig/network-scripts/ifcfg-**'
+cat_ifcfg_eno4: 'cat /etc/sysconfig/network-scripts/ifcfg-eno4'
+
+#get NICs's IPv4 and IPv6 IPs 
+get_ip_eno1_IPv4: "ip a s | grep -A 5 eno1: | grep 'inet 10.' | awk '{print $2}'"
+get_ip_eno1_IPv6: "ip a s | grep -A 5 eno1: | grep 'inet6 2620:' | awk '{print $2}'"
+get_ip_eno2_IPv4: "ip a s | grep -A 5 eno2: | grep 'inet 10.' | awk '{print $2}'"
+get_ip_eno2_IPv6: "ip a s | grep -A 5 eno2: | grep 'inet6 2620:' | awk '{print $2}'"
+get_ip_eno3_IPv4: "ip a s | grep -A 5 eno3: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_eno3_IPv6: "ip a s | grep -A 5 eno3: | grep 'inet6 2001:' | awk '{print $2}'"
+get_ip_eno4_IPv4: "ip a s | grep -A 5 eno4: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_eno4_IPv6: "ip a s | grep -A 5 eno4: | grep 'inet6 2001:' | awk '{print $2}'"
+get_ip_eno3.50_IPv4: "ip a s | grep -A 5 eno3.50@eno3: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_eno3.50_IPv6: "ip a s | grep -A 5 eno3.50@eno3: | grep 'inet6 2001:' | awk '{print $2}'"
+get_ip_eno4.50_IPv4: "ip a s | grep -A 5 eno4.50@eno4: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_eno4.50_IPv6: "ip a s | grep -A 5 eno4.50@eno4: | grep 'inet6 2001:' | awk '{print $2}'"
+get_ip_test-bond0_IPv4: "ip a s | grep -A 5 test-bond0: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_test-bond0_IPv6: "ip a s | grep -A 5 test-bond0: | grep 'inet6 2001:' | awk '{print $2}'"
+get_ip_test-bond0.50_IPv4: "ip a s | grep -A 5 test-bond0.50@test-bond0: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_test-bond0.50_IPv6: "ip a s | grep -A 5 test-bond0.50@test-bond0: | grep 'inet6 2001:' | awk '{print $2}'"
+
+#Firewall related command
+check_firewall_off: 'systemctl status firewalld | egrep "Active:.*dead"'
+check_firewall_on: 'systemctl status firewalld | egrep "Active:.*running"'
+firewalld_off: 'dead'
+firewalld_on: 'running'
+
+#Firewall service name
+svc_cockpit: 'Cockpit'
+svc_dhcp: 'DHCPv6 Client'
+svc_gluster: 'glusterfs-static'
+svc_ovirt: "oVirt's Virtual Desktop and Server Manager"
+svc_ssh: 'SSH'
+svc_vmm: 'Virtual Machine Management'
+svc_amqp: 'amqp'
+
+#IPv6 setting mode
+IPv6_mode_auto: 'Automatic'
+IPv6_mode_dhcp: 'Automatic (DHCP only)'
+IPv6_mode_manual: 'Manual'
+IPv6_mode_link: 'Link local'
+Ipv6_mode_ignore: 'Ignore'
+
+#IPv4 setting mode
+IPv4_mode_auto: 'Automatic (DHCP)'
+IPv4_mode_manual: 'Manual'
+IPv4_mode_link: 'Link local'
+IPv4_mode_shared: 'Shared'
+IPv4_mode_disabled: 'Disabled'
+
+#Manually configure IP for IPv6
+ipv6_ip_manual: '2001:50::77'
+ipv6_prefix_length: '64'
+ipv6_ip_in_cockpit: '2001:50:0:0:0:0:0:77/64'
+ipv6_ip_in_shell: '2001:50::77/64'
+ipv6_ip_link_name: 'Address 2001:50:0:0:0:0:0:77/64'
+
+#Manually configure IP for IPv4
+ipv4_ip_manual: '192.168.1.77'
+ipv4_prefix_length: '24'
+ipv4_ip_in_shell: '192.168.1.77/24'
+ipv4_ip_link_name: 'Address 192.168.1.77/24'
+
+#Bond Name
+ipv6_bond_setting_name: 'test-bond0'
+
+#VLAN ID
+vlan_id: '50'
+
+#Bridge name
+bridge_setting_name: 'test-bridge0'
+
+#Flags in 'ip add show' command output
+nic_ip_start_string_ipv4: 'inet'
+nic_ip_start_string_ipv6: 'inet6'
+nic_ip_end_string: 'scope global noprefixroute'
+
+#NIC name
+NICs_eno1: 'eno1'
+NICs_eno2: 'eno2'
+NICs_eno3: 'eno3'
+NICs_eno4: 'eno4'
+NICs_ovirt: 'ovirtmgmt'
+
+#ifcfg file names
+ifcfg_file_eno1: 'ifcfg-eno1'
+ifcfg_file_eno2: 'ifcfg-eno2'
+ifcfg_file_eno3: 'ifcfg-eno3'
+ifcfg_file_eno4: 'ifcfg-eno4'
+ifcfg_file_eno4.50: 'ifcfg-eno4.50'
+ifcfg_file_bond: 'ifcfg-test-bond0'
+ifcfg_file_vlan_over_bond: 'ifcfg-test-bond0.50'
+ifcfg_file_bridge: 'ifcfg-test-bridge0'
+device_eno1_in_ifcfg: 'DEVICE=eno1'
+device_eno2_in_ifcfg: 'DEVICE=eno2'
+device_eno3_in_ifcfg: 'DEVICE=eno3'
+device_eno4_in_ifcfg: 'DEVICE=eno4'
+
+#RHEVM-23965 Configure ifcfg script for network interface manually and persist it
+#cmd = "echo 'TYPE=Ethernet\nBOOTPROTO=dhcp\nDEFROUTE=yes\nPEERDNS=yes\nPEERROUTES=yes\nIPV4_FAILURE_FATAL=no\nIPV6INIT=yes\nIPV6_AUTOCONF=yes\nIPV6_DEFROUTE=yes\nIPV6_PEERDNS=yes\nIPV6_PEERROUTES=yes\nIPV6_FAILURE_FATAL=no\nNAME=eno4\nMACADDR=00:1b:21:27:47:0b\nDEVICE=eno4\nONBOOT=yes' > /etc/sysconfig/network-scripts/ifcfg-eno4"
+edit_ifcfg-eno4_script: "echo 'TYPE=Ethernet\nBOOTPROTO=dhcp\nDEFROUTE=yes\nPEERDNS=yes\nPEERROUTES=yes\nIPV4_FAILURE_FATAL=no\nIPV6INIT=yes\nIPV6_AUTOCONF=yes\nIPV6_DEFROUTE=yes\nIPV6_PEERDNS=yes\nIPV6_PEERROUTES=yes\nIPV6_FAILURE_FATAL=no\nNAME=eno4\nMACADDR=00:1b:21:27:47:0b\nDEVICE=eno4\nONBOOT=yes' > /etc/sysconfig/network-scripts/ifcfg-eno4"
+macaddr_in_ifcfg-eno4: '00:1b:21:27:47:0b'
+ifcfg-eno4_macaddr_via_ipas: 'MACADDR=00:1b:21:27:47:0b'
