@@ -1,0 +1,83 @@
+%YAML 1.2
+---
+
+#IPv6 setting mode
+IPv6_mode_auto: 'Automatic'
+IPv6_mode_dhcp: 'Automatic (DHCP only)'
+IPv6_mode_manual: 'Manual'
+IPv6_mode_link: 'Link local'
+Ipv6_mode_ignore: 'Ignore'
+
+#IPv4 setting mode
+IPv4_mode_auto: 'Automatic (DHCP)'
+IPv4_mode_manual: 'Manual'
+IPv4_mode_link: 'Link local'
+IPv4_mode_shared: 'Shared'
+IPv4_mode_disabled: 'Disabled'
+
+#Manually configure IP for IPv6
+ipv6_ip_manual: '2001:50::77'
+ipv6_prefix_length: '64'
+ipv6_ip_in_cockpit: '2001:50:0:0:0:0:0:77/64'
+ipv6_ip_in_shell: '2001:50::77/64'
+ipv6_ip_link_name: 'Address 2001:50:0:0:0:0:0:77/64'
+
+#Manually configure IP for IPv4
+ipv4_ip_manual: '192.168.1.77'
+ipv4_prefix_length: '24'
+ipv4_ip_in_shell: '192.168.1.77/24'
+ipv4_ip_link_name: 'Address 192.168.1.77/24'
+
+#Bond Name
+ipv6_bond_setting_name: 'test-bond0'
+
+#VLAN ID
+vlan_id: '50'
+
+#Networking related command
+check_ips: 'ip add show'
+add_route: '10.0.0.0/8'
+restart_netwrok_service: 'systemctl restart network'
+
+#get NICs's IPv4 and IPv6 IPs 
+get_ip_eno1_IPv4: "ip a s | grep -A 5 eno1: | grep 'inet 10.' | awk '{print $2}'"
+get_ip_eno1_IPv6: "ip a s | grep -A 5 eno1: | grep 'inet6 2620:' | awk '{print $2}'"
+get_ip_eno2_IPv4: "ip a s | grep -A 5 eno2: | grep 'inet 10.' | awk '{print $2}'"
+get_ip_eno2_IPv6: "ip a s | grep -A 5 eno2: | grep 'inet6 2620:' | awk '{print $2}'"
+get_ip_eno3_IPv4: "ip a s | grep -A 5 eno3: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_eno3_IPv6: "ip a s | grep -A 5 eno3: | grep 'inet6 2001:' | awk '{print $2}'"
+get_ip_eno4_IPv4: "ip a s | grep -A 5 eno4: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_eno4_IPv6: "ip a s | grep -A 5 eno4: | grep 'inet6 2001:' | awk '{print $2}'"
+get_ip_eno3.50_IPv4: "ip a s | grep -A 5 eno3.50@eno3: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_eno3.50_IPv6: "ip a s | grep -A 5 eno3.50@eno3: | grep 'inet6 2001:' | awk '{print $2}'"
+get_ip_eno4.50_IPv4: "ip a s | grep -A 5 eno4.50@eno4: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_eno4.50_IPv6: "ip a s | grep -A 5 eno4.50@eno4: | grep 'inet6 2001:' | awk '{print $2}'"
+get_ip_test-bond0_IPv4: "ip a s | grep -A 5 test-bond0: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_test-bond0_IPv6: "ip a s | grep -A 5 test-bond0: | grep 'inet6 2001:' | awk '{print $2}'"
+get_ip_test-bond0.50_IPv4: "ip a s | grep -A 5 test-bond0.50@test-bond0: | grep 'inet 192.' | awk '{print $2}'"
+get_ip_test-bond0.50_IPv6: "ip a s | grep -A 5 test-bond0.50@test-bond0: | grep 'inet6 2001:' | awk '{print $2}'"
+
+#Flags in 'ip add show' command output
+nic_ip_start_string_ipv4: 'inet'
+nic_ip_start_string_ipv6: 'inet6'
+nic_ip_end_string: 'scope global noprefixroute'
+
+#ifcfg-** script
+cat_ifcfg_eno4: 'cat /etc/sysconfig/network-scripts/ifcfg-eno4'
+check_ifcfg: 'ls /etc/sysconfig/network-scripts/'
+
+#NIC name
+NICs_eno1: 'eno1'
+NICs_eno2: 'eno2'
+NICs_eno3: 'eno3'
+NICs_eno4: 'eno4'
+NICs_ovirt: 'ovirtmgmt'
+
+#ifcfg file names
+ifcfg_file_eno1: 'ifcfg-eno1'
+ifcfg_file_eno2: 'ifcfg-eno2'
+ifcfg_file_eno3: 'ifcfg-eno3'
+ifcfg_file_eno4: 'ifcfg-eno4'
+ifcfg_file_eno4.50: 'ifcfg-eno4.50'
+ifcfg_file_bond: 'ifcfg-test-bond0'
+ifcfg_file_vlan_over_bond: 'ifcfg-test-bond0.50'
