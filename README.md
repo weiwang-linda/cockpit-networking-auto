@@ -11,12 +11,13 @@ This project uses selenium and avocado to automate tests for:
 2. Enter the project directory, install the dependency packages and enter to the virtualenv
 ```sh
 $ poetry shell
+$ poetry update
 ```
 
 3. Configure config.yml with correct parameters.
 4. Run tests
 ```sh
-$ python run.py $tags -m $mode -b $browser
+$ python run.py $tags -m local -b chrome
 ```
 
 **$tags** is the avocado tests filter, each test_*.py file must has one unique file level tag, zero or more subtags. For example, there is a test_a.py with a file level tag 'TEST_A', and a subtag 'SUB1', then:
