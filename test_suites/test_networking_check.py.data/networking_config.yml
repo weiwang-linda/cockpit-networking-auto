@@ -4,7 +4,7 @@
 #Networking related command
 check_ips: 'ip add show'
 add_route: '10.0.0.0/8'
-restart_netwrok_service: 'systemctl restart network'
+restart_netwrok_service: 'systemctl restart NetworkManager'
 check_ifcfg: 'ls /etc/sysconfig/network-scripts/'
 cat_ifcfg: 'cat /etc/sysconfig/network-scripts/ifcfg-**'
 cat_ifcfg_eno4: 'cat /etc/sysconfig/network-scripts/ifcfg-eno4'
@@ -34,12 +34,12 @@ firewalld_off: 'dead'
 firewalld_on: 'running'
 
 #Firewall service name
-svc_cockpit: 'Cockpit'
-svc_dhcp: 'DHCPv6 Client'
-svc_gluster: 'glusterfs-static'
-svc_ovirt: "oVirt's Virtual Desktop and Server Manager"
-svc_ssh: 'SSH'
-svc_vmm: 'Virtual Machine Management'
+svc_cockpit: 'cockpit'
+svc_dhcp: 'dhcpv6-client'
+svc_gluster: 'glusterfs'
+svc_ovirt: "vdsm"
+svc_ssh: 'ssh'
+svc_vmm: 'libvirt'
 svc_amqp: 'amqp'
 
 #IPv6 setting mode

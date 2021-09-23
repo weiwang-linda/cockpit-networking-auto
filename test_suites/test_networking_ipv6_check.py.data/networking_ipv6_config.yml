@@ -37,7 +37,7 @@ vlan_id: '50'
 #Networking related command
 check_ips: 'ip add show'
 add_route: '10.0.0.0/8'
-restart_netwrok_service: 'systemctl restart network'
+restart_netwrok_service: 'systemctl restart NetworkManager'
 
 #get NICs's IPv4 and IPv6 IPs 
 get_ip_eno1_IPv4: "ip a s | grep -A 5 eno1: | grep 'inet 10.' | awk '{print $2}'"
