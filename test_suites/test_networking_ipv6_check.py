@@ -140,7 +140,7 @@ class TestNetworkingIpv6Check(CockpitNetworkingIpv6Page):
     @add_case_id("RHEVM-24342")
     def test_check_network_after_add_rhvh_to_rhvm(self):
         """
-        :avocado: tags=IPv6_tier1
+        :avocado: tags=IPv6_tier
         """
         self.check_network_after_add_rhvh_to_rhvm()
 

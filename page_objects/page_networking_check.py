@@ -27,7 +27,7 @@ class CockpitNetworkingPage(SeleniumTest):
         "4.1_rhvm_fqdn": "vm-198-141.lab.eng.pek2.redhat.com",
         "4.2_rhvm_fqdn": "bootp-73-199-109.lab.eng.pek2.redhat.com",
         "4.3_rhvm_fqdn": "https://vm-198-110.lab.eng.pek2.redhat.com/ovirt-engine/api",
-        "4.4_rhvm_fqdn": "https://vm-198-50.lab.eng.pek2.redhat.com/ovirt-engine/api",
+        "4.4_rhvm_fqdn": "https://vm-197-137.lab.eng.pek2.redhat.com/ovirt-engine/api",
     }
 
     RHVM_COMPUTE_MAP = {
@@ -73,7 +73,8 @@ class CockpitNetworkingPage(SeleniumTest):
     SYSTEM_RESTART_DELAY_1_MINUTE = "//button[@id='delay']"
 
     #The "No Delay" item on "Delay" drop-down list 
-    SYSTEM_RESTART_DELAY_NO_DELAY = "//div[@class='pf-c-select pf-m-expanded']//button[text()='No delay']"
+    # SYSTEM_RESTART_DELAY_NO_DELAY = "//div[@class='pf-c-select pf-m-expanded']//button[text()='No delay']"
+    SYSTEM_RESTART_DELAY_NO_DELAY = "//div[@class='pf-c-select pf-m-expanded shutdown-select-delay']//button[text()='No delay']"  ###4.4.9
 
     #The "Restart" button on "Restart" page
     SYSTEM_RESTART_RESTART_BUTTON = "//button[@class='pf-c-button pf-m-danger']"
@@ -108,7 +109,8 @@ class CockpitNetworkingPage(SeleniumTest):
     #the ON/OFF button and Connect automatically check box
     CONNECT_AUTOMATICALLY_CHECK_BOX = "//dl[@id='network-interface-settings']//label[text()='Connect automatically']"
     #NETWORK_NICS_ON = "//div[@id='network-interface-delete-switch']/label[text()='On']"
-    NETWORK_NICS_ON = "//article[@class='pf-c-card network-interface-details']//span[@class='pf-c-switch__toggle']"
+    # NETWORK_NICS_ON = "//article[@class='pf-c-card network-interface-details']//span[@class='pf-c-switch__toggle']"
+    NETWORK_NICS_ON = "//input[@id='autoreconnect']"    ### 4.4.9
     NETWORK_NICS_OFF = "//article[@class='pf-c-card network-interface-details']//span[@class='pf-c-switch__toggle']"
 
     #The "Delete" button in NICs(bond) page
@@ -120,18 +122,21 @@ class CockpitNetworkingPage(SeleniumTest):
     #IPv4 Settings link in NICs page
     IPV4_CONFIG_LINK = "//dl[@id='network-interface-settings']//span[text()='IPv4']/../following-sibling::*//button[contains(text(), 'edit')]"
     IPV4_MODE_NAME = "//dl[@id='network-interface-settings']//span[text()='IPv4']/../following-sibling::*//span[@class='network-interface-settings-text']"
-    IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='ct-select col-left']"
+    # IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='ct-select col-left']"
+    IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"   ###4.4.9
     IPV4_SETTING_DROP_DOWN_LIST_AUTOMATIC = "//div[@data-field='addresses']//option[contains(text(),'Automatic (DHCP)')]"
     IPV4_SETTING_DROP_DOWN_LIST_MANUAL= "//div[@data-field='addresses']//option[contains(text(),'Manual')]"
     IPV4_SETTING_DROP_DOWN_LIST_DISABLED= "//div[@data-field='addresses']//option[contains(text(),'Disabled')]"
     IPV4_SETTING_DROP_DOWN_LIST_LINKLOCAL= "//div[@data-field='addresses']//option[contains(text(),'Link local')]"
     IPV4_SETTING_DROP_DOWN_LIST_SHARED= "//div[@data-field='addresses']//option[contains(text(),'Shared')]"
-    IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary btn-sm']"
+    # IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary btn-sm']"
+    IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary pf-m-small']"  ### 4.4.9
 
     #IPv6 Settings link in NICs page
     IPV6_CONFIG_LINK = "//dl[@id='network-interface-settings']//span[text()='IPv6']/../following-sibling::*//button[contains(text(), 'edit')]"
     IPV6_MODE_NAME = "//dl[@id='network-interface-settings']//span[text()='IPv6']/../following-sibling::*//span[@class='network-interface-settings-text']"
-    IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='ct-select col-left']"
+    # IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='ct-select col-left']"
+    IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"   ###4.4.9
     IPV6_SETTING_DROP_DOWN_LIST_MANUAL = "//div[@data-field='addresses']//option[contains(text(),'Manual')]"
     IPV6_SETTING_DROP_DOWN_LIST_AUTOMATIC = "//div[@data-field='addresses']//option[contains(text(),'Automatic')]"
     IPV6_SETTING_DROP_DOWN_LIST_DHCP_ONLY = "//div[@data-field='addresses']//option[contains(text(),'Automatic (DHCP only)')]"
@@ -145,7 +150,7 @@ class CockpitNetworkingPage(SeleniumTest):
     INPUT_PREFIX = "//div[@id='network-ip-settings-body']/div/div/table/tr/td[2]/input"
 
     #Apply button of IPv6 Settings page
-    IPV6_SETTING_APPLY_BUTTON = "//button[@id='network-ip-settings-apply']"
+    IPV4_IPV6_SETTING_APPLY_BUTTON = "//button[@id='network-ip-settings-apply']"
 
     #The "Networking" button in left side
     NETWORKING_MENU_LEFT_SIDE = "//a[@href='/network']"
@@ -166,9 +171,10 @@ class CockpitNetworkingPage(SeleniumTest):
     BOND_SETTING_MAC_LIST = "//div[@id='network-bond-settings-dialog']//button[@class='btn btn-default dropdown-toggle']"
     BOND_SETTING_MAC_ENO1 = "//ul[@id='network-bond-settings-mac-menu']//a[contains(text(),'eno1')]"
     BOND_SETTING_MAC_ENO3 = "//ul[@id='network-bond-settings-mac-menu']//a[contains(text(),'eno3')]"
-    BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='ct-select form-control']"
-    BOND_SETTING_PRIMARY_ENO1 = "//div[@id='network-bond-settings-dialog']//select[@class='ct-select form-control']/option[contains(text(),'eno1')]"
-    BOND_SETTING_PRIMARY_ENO3 = "//div[@id='network-bond-settings-dialog']//select[@class='ct-select form-control']/option[contains(text(),'eno3')]"
+    # BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='ct-select form-control']"
+    BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']"   ### 4.4.9
+    BOND_SETTING_PRIMARY_ENO1 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno1')]"  ### 4.4.9
+    BOND_SETTING_PRIMARY_ENO3 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno3')]"  ### 4.4.9
     BOND_SETTING_APPLY = "//div[@id='network-bond-settings-dialog']//button[@id='network-bond-settings-apply']"
     
     #bond mode in Bond page
@@ -206,10 +212,12 @@ class CockpitNetworkingPage(SeleniumTest):
     FIREWALL_LINK = "//article[@id='networking-firewall-summary']//a[@id='networking-firewall-link']"
     #Firewall frame
     FIREWALL_FRAME = "cockpit1:localhost/network/firewall"
-    ADD_SERVICE_BUTTON = "//div[@class='zone-section-heading']//h4[text()='public zone']/../following-sibling::*//button[contains(text(),'Add services')]"
+    # ADD_SERVICE_BUTTON = "//div[@class='zone-section-heading']//h4[text()='public zone']/../following-sibling::*//button[contains(text(),'Add services')]"
+    ADD_SERVICE_BUTTON = "//section[@id='zones-listing']/div/article/div/div[2]/button[2]"    ### 4.4.9
     FIREWALL_SERVICE_AMQP = "//div[@id='add-services-dialog']//input[@id='firewall-service-amqp']"
     FIREWALL_PRIMARY_BUTTON = "//div[@id='add-services-dialog']//button[text()='Add services']"
-    FIREWALL_SERVICE_LIST = "//table[@class='ct-table pf-c-table pf-m-grid-md pf-m-compact']//td[contains(text(),'amqp')]/preceding-sibling::*/button[@id='expandable-toggle12']"
+    # FIREWALL_SERVICE_LIST = "//table[@class='ct-table pf-c-table pf-m-grid-md pf-m-compact']//td[contains(text(),'amqp')]/preceding-sibling::*/button[@id='expandable-toggle12']"
+    FIREWALL_SERVICE_LIST = "//button[@id='public-expandable-toggle12']"    ### 4.4.9
     FIREWALL_REMOVE_SERVICE = "//button[@aria-label='Remove service amqp']"
     FIREWALL_PUBLIC_ZONE_TABLE = "//table[@class='ct-table pf-c-table pf-m-grid-md pf-m-compact']"
     #services frame
@@ -349,8 +357,8 @@ class CockpitNetworkingPage(SeleniumTest):
     def check_config_one_nic_manual_mode(self):
         #configure eno3 as IPv4 Manual mode
         self._configure_one_nic_ipv4_ipv6_with_specified_mode(
-            self.NETWORK_INFO_NICS_ENO3, self.NETWORK_INFO_NICS_ENO3_SENDING, 
-            ipv4_mode_name=self.config_dict['IPv4_mode_manual'], 
+            self.NETWORK_INFO_NICS_ENO3, self.NETWORK_INFO_NICS_ENO3_SENDING,
+            ipv4_mode_name=self.config_dict['IPv4_mode_manual'],
             ipv4_mode_link=self.IPV4_SETTING_DROP_DOWN_LIST_MANUAL)
 
         #reboot system and login cockpit again
@@ -360,7 +368,7 @@ class CockpitNetworkingPage(SeleniumTest):
         self._check_nic_mode_settings_after_reboot(
             self.NETWORK_INFO_NICS_ENO3, ipv4_mode_name=self.config_dict['IPv4_mode_manual'])
 
-        #after reboot, check ipv4 ip via shell 
+        #after reboot, check ipv4 ip via shell
         time.sleep(self.WAIT_IP_READY)
         ipv4_text = self._get_ip_via_rhvh_shell(self.config_dict['NICs_eno3'], "IPv4")
         if not (ipv4_text == self.config_dict['ipv4_ip_in_shell']):
@@ -1131,6 +1139,8 @@ class CockpitNetworkingPage(SeleniumTest):
 
         #get NIC status and enter NIC 
         eno_status = self.get_text(nic_sending_link)
+        print("++++++++++++++++++++++++++++++++++++")
+        print(eno_status)
         self.click(nic_link)
         time.sleep(self.SLEEP_TIME)
 
@@ -1494,17 +1504,18 @@ class CockpitNetworkingPage(SeleniumTest):
         self.click(ipv4_ipv6_link)
         time.sleep(self.SLEEP_TIME)
 
-        #click "Automatic" mode
-        self.click(self.IPV6_SETTING_DROP_DOWN_LIST)
+        #click "Automatic" modeIPV6_SETTING_APPLY_BUTTON
+        # self.click(self.IPV6_SETTING_DROP_DOWN_LIST)
+        self.click(self.IPV4_SETTING_DROP_DOWN_LIST)
         self.click(self.IPV4_SETTING_DROP_DOWN_LIST_AUTOMATIC)
         time.sleep(self.SLEEP_TIME)
 
         #click the "-" button to delete the manual IP
-        self.click(self.IPV6_SETTING_DELETE_MANUAL_IP_BUTTON)
+        self.click(self.IPV4_SETTING_DELETE_MANUAL_IP_BUTTON)   ### 4.4.9
         time.sleep(self.SLEEP_TIME)
 
         #click the "Apply" button
-        self.click(self.IPV6_SETTING_APPLY_BUTTON)
+        self.click(self.IPV4_IPV6_SETTING_APPLY_BUTTON)    ### 4.4.9
         time.sleep(self.SLEEP_TIME)
 
         return
@@ -1527,7 +1538,7 @@ class CockpitNetworkingPage(SeleniumTest):
             time.sleep(self.SLEEP_TIME)
 
         #click the "Apply" button
-        self.click(self.IPV6_SETTING_APPLY_BUTTON)
+        self.click(self.IPV4_IPV6_SETTING_APPLY_BUTTON)
         time.sleep(self.SLEEP_TIME)
 
         return True
@@ -1552,7 +1563,7 @@ class CockpitNetworkingPage(SeleniumTest):
             time.sleep(self.SLEEP_TIME)
 
         #click the "Apply" button
-        self.click(self.IPV6_SETTING_APPLY_BUTTON)
+        self.click(self.IPV4_IPV6_SETTING_APPLY_BUTTON)
         time.sleep(self.SLEEP_TIME)
 
         return True
@@ -1895,6 +1906,3 @@ class CockpitNetworkingPage(SeleniumTest):
                 count = count + 1
             else:
                 break
-
-    
-    

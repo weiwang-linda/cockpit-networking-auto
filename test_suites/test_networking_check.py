@@ -131,7 +131,7 @@ class TestNetworkingCheck(CockpitNetworkingPage):
     @add_case_id("RHEVM-23967")
     def test_check_network_after_add_rhvh_to_rhvm(self):
         """
-        :avocado: tags=networking_tier1
+        :avocado: tags=networking_tier
         """
         self.check_network_after_add_rhvh_to_rhvm()
 
