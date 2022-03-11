@@ -123,7 +123,8 @@ class CockpitNetworkingPage(SeleniumTest):
     IPV4_CONFIG_LINK = "//dl[@id='network-interface-settings']//span[text()='IPv4']/../following-sibling::*//button[contains(text(), 'edit')]"
     IPV4_MODE_NAME = "//dl[@id='network-interface-settings']//span[text()='IPv4']/../following-sibling::*//span[@class='network-interface-settings-text']"
     # IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='ct-select col-left']"
-    IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"   ###4.4.9
+    # IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"   ###4.4.9
+    IPV4_SETTING_DROP_DOWN_LIST = "//select[@id='network-ip-settings-select-method']"    ### 4.5
     IPV4_SETTING_DROP_DOWN_LIST_AUTOMATIC = "//div[@data-field='addresses']//option[contains(text(),'Automatic (DHCP)')]"
     IPV4_SETTING_DROP_DOWN_LIST_MANUAL= "//div[@data-field='addresses']//option[contains(text(),'Manual')]"
     IPV4_SETTING_DROP_DOWN_LIST_DISABLED= "//div[@data-field='addresses']//option[contains(text(),'Disabled')]"
@@ -136,7 +137,8 @@ class CockpitNetworkingPage(SeleniumTest):
     IPV6_CONFIG_LINK = "//dl[@id='network-interface-settings']//span[text()='IPv6']/../following-sibling::*//button[contains(text(), 'edit')]"
     IPV6_MODE_NAME = "//dl[@id='network-interface-settings']//span[text()='IPv6']/../following-sibling::*//span[@class='network-interface-settings-text']"
     # IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='ct-select col-left']"
-    IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"   ###4.4.9
+    # IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"   ###4.4.9
+    IPV4_SETTING_DROP_DOWN_LIST = "//select[@id='network-ip-settings-select-method']"  ### 4.5
     IPV6_SETTING_DROP_DOWN_LIST_MANUAL = "//div[@data-field='addresses']//option[contains(text(),'Manual')]"
     IPV6_SETTING_DROP_DOWN_LIST_AUTOMATIC = "//div[@data-field='addresses']//option[contains(text(),'Automatic')]"
     IPV6_SETTING_DROP_DOWN_LIST_DHCP_ONLY = "//div[@data-field='addresses']//option[contains(text(),'Automatic (DHCP only)')]"
@@ -146,8 +148,10 @@ class CockpitNetworkingPage(SeleniumTest):
    
 
     #Addresses text input box of manual mode
-    INPUT = "//div[@id='network-ip-settings-body']/div/div/table/tr/td/input"
-    INPUT_PREFIX = "//div[@id='network-ip-settings-body']/div/div/table/tr/td[2]/input"
+    # INPUT = "//div[@id='network-ip-settings-body']/div/div/table/tr/td/input"
+    INPUT = "//input[@id='network-ip-settings-address-0']"  ### 4.5
+    # INPUT_PREFIX = "//div[@id='network-ip-settings-body']/div/div/table/tr/td[2]/input"
+    INPUT_PREFIX = "//input[@id='network-ip-settings-netmask-0']"  ### 4.5
 
     #Apply button of IPv6 Settings page
     IPV4_IPV6_SETTING_APPLY_BUTTON = "//button[@id='network-ip-settings-apply']"

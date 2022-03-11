@@ -35,7 +35,7 @@ class TestNetworkingCheck(CockpitNetworkingPage):
     @add_case_id("RHEVM-23959")
     def test_config_one_nic_manual_mode(self):
         """
-        :avocado: tags=networking_tier1
+        :avocado: tags=networking_tier11
         """
         self.check_config_one_nic_manual_mode()
 
