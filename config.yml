@@ -14,5 +14,5 @@ selenium_hub: ''
 avocado_results_dir: '/home/weiwang/work_auto/avocado-results/'
 
 # versions of pkg/sys under test
-test_pkg_ver: 'cockpit-ovirt-dashboard-0.15.1-2.el8ev.noarch'
-test_sys_ver: 'rhvh-4.4.8.1-0.20210903.0'
+test_pkg_ver: 'cockpit-ovirt-dashboard-0.15.1-2'
+test_sys_ver: 'rhvh-4.4.10.3-0.20220321.0'

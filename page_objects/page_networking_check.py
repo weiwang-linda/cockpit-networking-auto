@@ -59,7 +59,8 @@ class CockpitNetworkingPage(SeleniumTest):
     NETWORKING_MENU = "//a[@href='/network']"
 
     #"Reconnect" button after reboot
-    RECONNECT_BUTTON = "//div[@class='blank-slate-pf-main-action']/button[@id='machine-reconnect']"
+    # RECONNECT_BUTTON = "//div[@class='blank-slate-pf-main-action']/button[@id='machine-reconnect']"
+    RECONNECT_BUTTON = "// *[@id = 'machine-reconnect']"         ### 4.5
 
     #The "System" menu on left side
     SYSTEM_MENU = "//a[@href='/system']"
