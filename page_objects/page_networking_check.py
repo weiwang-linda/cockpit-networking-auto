@@ -60,7 +60,7 @@ class CockpitNetworkingPage(SeleniumTest):
 
     #"Reconnect" button after reboot
     # RECONNECT_BUTTON = "//div[@class='blank-slate-pf-main-action']/button[@id='machine-reconnect']"
-    RECONNECT_BUTTON = "//button[@id='machine-reconnect']"   ### 4.5
+    RECONNECT_BUTTON = "//button[@id='machine-reconnect']"   ###4.5
 
     #The "System" menu on left side
     SYSTEM_MENU = "//a[@href='/system']"
@@ -185,7 +185,7 @@ class CockpitNetworkingPage(SeleniumTest):
 
     # BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='ct-select form-control']"
     # BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']"   ### 4.4.9
-    BOND_SETTING_PRIMARY_LIST = "//select[@id='network-bond-settings-primary-select']"
+    BOND_SETTING_PRIMARY_LIST = "//select[@id='network-bond-settings-primary-select']"   ###4.5
     # BOND_SETTING_PRIMARY_ENO1 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno1')]"  ### 4.4.9
     # BOND_SETTING_PRIMARY_ENO3 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno3')]"  ### 4.4.9
     BOND_SETTING_PRIMARY_ENO1 = "//select[@id='network-bond-settings-primary-select']/option[contains(text(),'eno1')]"    ###4.5

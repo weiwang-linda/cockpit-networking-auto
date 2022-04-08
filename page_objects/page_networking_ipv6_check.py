@@ -63,7 +63,8 @@ class CockpitNetworkingIpv6Page(SeleniumTest):
     NETWORKING_MENU = "//a[@href='/network']"
 
     #"Reconnect" button after reboot
-    RECONNECT_BUTTON = "//div[@class='blank-slate-pf-main-action']/button[@id='machine-reconnect']"
+    # RECONNECT_BUTTON = "//div[@class='blank-slate-pf-main-action']/button[@id='machine-reconnect']"
+    RECONNECT_BUTTON = "//button[@id='machine-reconnect']"  ### 4.5
 
     #The "System" menu on left side
     SYSTEM_MENU = "//a[@href='/system']"
@@ -125,31 +126,36 @@ class CockpitNetworkingIpv6Page(SeleniumTest):
     IPV4_CONFIG_LINK = "//dl[@id='network-interface-settings']//span[text()='IPv4']/../following-sibling::*//button[contains(text(), 'edit')]"
     IPV4_MODE_NAME = "//dl[@id='network-interface-settings']//span[text()='IPv4']/../following-sibling::*//span[@class='network-interface-settings-text']"
     # IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='ct-select col-left']"
-    IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"  ###4.4.9
+    # IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"  ###4.4.9
+    IPV4_SETTING_DROP_DOWN_LIST = "//select[@id='network-ip-settings-select-method']"  ### 4.5
     IPV4_SETTING_DROP_DOWN_LIST_AUTOMATIC = "//div[@data-field='addresses']//option[contains(text(), 'Automatic (DHCP)')]"
     IPV4_SETTING_DROP_DOWN_LIST_MANUAL= "//div[@data-field='addresses']//option[contains(text(),'Manual')]"
     IPV4_SETTING_DROP_DOWN_LIST_DISABLED= "//div[@data-field='addresses']//option[contains(text(),'Disabled')]"
     IPV4_SETTING_DROP_DOWN_LIST_LINKLOCAL= "//div[@data-field='addresses']//option[contains(text(),'Link local')]"
     IPV4_SETTING_DROP_DOWN_LIST_SHARED= "//div[@data-field='addresses']//option[contains(text(),'Shared')]"
     # IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary btn-sm']"
-    IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary pf-m-small']"  ### 4.4.9
+    # IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary pf-m-small']"  ### 4.4.9
+    IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//form[@id='network-ip-settings-body']/div[1]/div[2]/div/div[4]/div/button"  ###4.5
 
     #IPv6 Settings link in NICs page
     IPV6_CONFIG_LINK = "//dl[@id='network-interface-settings']//span[text()='IPv6']/../following-sibling::*//button[contains(text(), 'edit')]"
     IPV6_MODE_NAME = "//dl[@id='network-interface-settings']//span[text()='IPv6']/../following-sibling::*//span[@class='network-interface-settings-text']"
     # IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='ct-select col-left']"
-    IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"  ###4.4.9
+    # IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"  ###4.4.9
+    IPV6_SETTING_DROP_DOWN_LIST = "//select[@id='network-ip-settings-select-method']"  ### 4.5
     IPV6_SETTING_DROP_DOWN_LIST_MANUAL = "//div[@data-field='addresses']//option[contains(text(),'Manual')]"
     IPV6_SETTING_DROP_DOWN_LIST_AUTOMATIC = "//div[@data-field='addresses']//option[contains(text(),'Automatic')]"
     IPV6_SETTING_DROP_DOWN_LIST_DHCP_ONLY = "//div[@data-field='addresses']//option[contains(text(),'Automatic (DHCP only)')]"
     IPV6_SETTING_DROP_DOWN_LIST_IGNORE = "//div[@data-field='addresses']//option[contains(text(),'Ignore')]"
     IPV6_SETTING_DROP_DOWN_LIST_LINKLOCAL = "//div[@data-field='addresses']//option[contains(text(),'Link local')]"
     # IPV6_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary btn-sm']"
-    IPV6_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary pf-m-small']"  ### 4.4.9
-
+    # IPV6_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary pf-m-small']"  ### 4.4.9
+    IPV6_SETTING_DELETE_MANUAL_IP_BUTTON = "//form[@id='network-ip-settings-body']/div[1]/div[2]/div/div[4]/div/button"
     #Addresses text input box of manual mode
-    INPUT = "//div[@id='network-ip-settings-body']/div/div/table/tr/td/input"
-    INPUT_PREFIX = "//div[@id='network-ip-settings-body']/div/div/table/tr/td[2]/input"
+    # INPUT = "//div[@id='network-ip-settings-body']/div/div/table/tr/td/input"
+    INPUT = "//input[@id='network-ip-settings-address-0']"  ###4.5
+    # INPUT_PREFIX = "//div[@id='network-ip-settings-body']/div/div/table/tr/td[2]/input"
+    INPUT_PREFIX = "//input[@id='network-ip-settings-netmask-0']"  ###4.5
 
     #Apply button of IPv6 Settings page
     IPV6_SETTING_APPLY_BUTTON = "//button[@id='network-ip-settings-apply']"
@@ -167,18 +173,26 @@ class CockpitNetworkingIpv6Page(SeleniumTest):
     BOND_SETTING_NAME = "//div[@id='network-bond-settings-dialog']//input[@id='network-bond-settings-interface-name-input']"
     BOND_SETTING_MEMBERS_CHECKBOX_ENO1 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno1')]"
     BOND_SETTING_MEMBERS_CHECKBOX_ENO2 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno2')]"
-    BOND_SETTING_MEMBERS_CHECKBOX_ENO3 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno3')]"
-    BOND_SETTING_MEMBERS_CHECKBOX_ENO4 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno4')]"
-    BOND_SETTING_MAC_LIST = "//div[@id='network-bond-settings-dialog']//button[@class='btn btn-default dropdown-toggle']"
+    # BOND_SETTING_MEMBERS_CHECKBOX_ENO3 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno3')]"
+    BOND_SETTING_MEMBERS_CHECKBOX_ENO3 = "//input[@id='network-bond-settings-interface-members-eno3']"  ###4.5
+    # BOND_SETTING_MEMBERS_CHECKBOX_ENO4 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno4')]"
+    BOND_SETTING_MEMBERS_CHECKBOX_ENO4 = "//input[@id='network-bond-settings-interface-members-eno4']"  ###4.5
+    # BOND_SETTING_MAC_LIST = "//div[@id='network-bond-settings-dialog']//button[@class='btn btn-default dropdown-toggle']"
+    BOND_SETTING_MAC_LIST = "//input[@id='network-bond-settings-mac-input-select-typeahead']"  ###4.5
     BOND_SETTING_MAC_ENO1 = "//ul[@id='network-bond-settings-mac-menu']//a[contains(text(),'eno1')]"
-    BOND_SETTING_MAC_ENO3 = "//ul[@id='network-bond-settings-mac-menu']//a[contains(text(),'eno3')]"
+    # BOND_SETTING_MAC_ENO3 = "//ul[@id='network-bond-settings-mac-menu']//a[contains(text(),'eno3')]"
+    BOND_SETTING_MAC_ENO3 = "//div[@id='network-page']/../div[3]/ul/li[3]/button"  ###4.5
     # BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='ct-select form-control']"
-    BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']"  ### 4.4.9
+    # BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']"  ### 4.4.9
+    BOND_SETTING_PRIMARY_LIST = "//select[@id='network-bond-settings-primary-select']"  ###4.5
     # BOND_SETTING_PRIMARY_ENO1 = "//div[@id='network-bond-settings-dialog']//select[@class='ct-select form-control']/option[contains(text(),'eno1')]"
     # BOND_SETTING_PRIMARY_ENO3 = "//div[@id='network-bond-settings-dialog']//select[@class='ct-select form-control']/option[contains(text(),'eno3')]"
-    BOND_SETTING_PRIMARY_ENO1 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno1')]"  ### 4.4.9
-    BOND_SETTING_PRIMARY_ENO3 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno3')]"  ### 4.4.9
-    BOND_SETTING_APPLY = "//div[@id='network-bond-settings-dialog']//button[@id='network-bond-settings-apply']"
+    # BOND_SETTING_PRIMARY_ENO1 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno1')]"  ### 4.4.9
+    # BOND_SETTING_PRIMARY_ENO3 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno3')]"  ### 4.4.9
+    BOND_SETTING_PRIMARY_ENO1 = "//select[@id='network-bond-settings-primary-select']/option[contains(text(),'eno1')]"  ###4.5
+    BOND_SETTING_PRIMARY_ENO3 = "//select[@id='network-bond-settings-primary-select']/option[contains(text(),'eno3')]"  ###4.5
+    # BOND_SETTING_APPLY = "//div[@id='network-bond-settings-dialog']//button[@id='network-bond-settings-apply']"
+    BOND_SETTING_APPLY = "//button[@id='network-bond-settings-apply']"  ###4.5
 
     #bond mode in Bond page
     BOND_MODE_UNDER_BOND_NAME = "//dl[@id='network-interface-settings']//span[text()='Bond']/../following-sibling::*//span[@class='network-interface-settings-text']"
