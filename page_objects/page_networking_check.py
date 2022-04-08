@@ -132,7 +132,8 @@ class CockpitNetworkingPage(SeleniumTest):
     IPV4_SETTING_DROP_DOWN_LIST_LINKLOCAL= "//div[@data-field='addresses']//option[contains(text(),'Link local')]"
     IPV4_SETTING_DROP_DOWN_LIST_SHARED= "//div[@data-field='addresses']//option[contains(text(),'Shared')]"
     # IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary btn-sm']"
-    IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary pf-m-small']"  ### 4.4.9
+    # IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//input[@placeholder='Gateway']/../following-sibling::*/button[@class='pf-c-button pf-m-secondary pf-m-small']"  ### 4.4.9
+    IPV4_SETTING_DELETE_MANUAL_IP_BUTTON = "//form[@id='network-ip-settings-body']/div[1]/div[2]/div/div[4]/div/button"   ###4.5
 
     #IPv6 Settings link in NICs page
     IPV6_CONFIG_LINK = "//dl[@id='network-interface-settings']//span[text()='IPv6']/../following-sibling::*//button[contains(text(), 'edit')]"
@@ -148,8 +149,10 @@ class CockpitNetworkingPage(SeleniumTest):
    
 
     #Addresses text input box of manual mode
-    INPUT = "//div[@id='network-ip-settings-body']/div/div/table/tr/td/input"
-    INPUT_PREFIX = "//div[@id='network-ip-settings-body']/div/div/table/tr/td[2]/input"
+    # INPUT = "//div[@id='network-ip-settings-body']/div/div/table/tr/td/input"
+    INPUT = "//input[@id='network-ip-settings-address-0']"    ###4.5
+    # INPUT_PREFIX = "//div[@id='network-ip-settings-body']/div/div/table/tr/td[2]/input"
+    INPUT_PREFIX = "//input[@id='network-ip-settings-netmask-0']"   ###4.5
 
     #Apply button of IPv6 Settings page
     IPV4_IPV6_SETTING_APPLY_BUTTON = "//button[@id='network-ip-settings-apply']"
