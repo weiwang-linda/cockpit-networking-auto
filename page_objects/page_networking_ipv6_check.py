@@ -84,9 +84,9 @@ class CockpitNetworkingIpv6Page(SeleniumTest):
     NETWORK_INFO_NICS_ENO4 = "//div[@id='networking-interfaces']/table/tbody/tr/td[contains(text(),'eno4')]"
 
     #IP Address column after NICs
-    NETWORK_INFO_NICS_ENO1_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno1']/td/span"
-    NETWORK_INFO_NICS_ENO2_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno2']/td/span"
-    NETWORK_INFO_NICS_ENO3_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno3']/td/span"
+    NETWORK_INFO_NICS_ENO1_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno1']/td[@colspan='2']"
+    NETWORK_INFO_NICS_ENO2_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno2']/td[@colspan='2']"
+    NETWORK_INFO_NICS_ENO3_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno3']/td[@colspan='2']"
     NETWORK_INFO_NICS_BOND_IP_ADDRESS = "//div[@id='networking-interfaces']//tr[@data-interface='test-bond0']/td"
     NETWORK_INFO_NICS_VLAN_OVER_ENO3_IP_ADDRESS = "//div[@id='networking-interfaces']//tr[@data-interface='eno3.50']/td"
     NETWORK_INFO_NICS_VLAN_OVER_ENO4_IP_ADDRESS = "//div[@id='networking-interfaces']//tr[@data-interface='eno4.50']/td"
@@ -191,18 +191,16 @@ class CockpitNetworkingIpv6Page(SeleniumTest):
         self.driver.switch_to.default_content()
         self.click("//a[@href='/dashboard']") '''
 
-        self.driver.switch_to.default_content()
-        self.click(self.HOST_LOCALHOST_MENU)
+        self.switch_to_frame(self.OVIRT_DASHBOARD_FRAME_NAME)
+        self.click(self.DASHBOARD_LINK)
+        self.click(self.NETWORK_INFO_LINK)
         time.sleep(self.SLEEP_TIME)
 
-        #click the "Networking" menu on left side
-        self.click(self.NETWORKING_MENU)
-
-        #back to the root html
+        # back to the root html
         self.driver.switch_to.default_content()
         time.sleep(self.SLEEP_TIME)
 
-        #switch to the networking frame
+        # switch to the networking frame
         self.switch_to_frame(self.NETWORKING_FRAME)
 
         #add ip route
@@ -319,6 +317,12 @@ class CockpitNetworkingIpv6Page(SeleniumTest):
         self._check_nic_mode_before_and_after_reboot(
             self.NETWORK_INFO_NICS_ENO3,
             Ipv6_mode_name=self.config_dict['IPv6_mode_manual'])
+
+        # ww
+        if eno3_status == "Inactive":
+            #turn on the NIC
+            self.click(self.NETWORK_NICS_ON)
+            time.sleep(self.SLEEP_TIME)
 
         #after reboot, check ipv6 ip via shell 
         ipv6_text = self._get_ip_via_rhvh_shell("eno3", "IPv6")

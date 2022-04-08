@@ -21,7 +21,6 @@ ipv6_prefix_length: '64'
 ipv6_ip_in_cockpit: '2001:50:0:0:0:0:0:77/64'
 ipv6_ip_in_shell: '2001:50::77/64'
 ipv6_ip_link_name: 'Address 2001:50:0:0:0:0:0:77/64'
-
 #Manually configure IP for IPv4
 ipv4_ip_manual: '192.168.1.77'
 ipv4_prefix_length: '24'
