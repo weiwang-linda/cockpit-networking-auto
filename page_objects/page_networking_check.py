@@ -139,7 +139,8 @@ class CockpitNetworkingPage(SeleniumTest):
     IPV6_CONFIG_LINK = "//dl[@id='network-interface-settings']//span[text()='IPv6']/../following-sibling::*//button[contains(text(), 'edit')]"
     IPV6_MODE_NAME = "//dl[@id='network-interface-settings']//span[text()='IPv6']/../following-sibling::*//span[@class='network-interface-settings-text']"
     # IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='ct-select col-left']"
-    IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"   ###4.4.9
+    # IPV6_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"   ###4.4.9
+    IPV6_SETTING_DROP_DOWN_LIST = "//select[@id='network-ip-settings-select-method']"  ### 4.5
     IPV6_SETTING_DROP_DOWN_LIST_MANUAL = "//div[@data-field='addresses']//option[contains(text(),'Manual')]"
     IPV6_SETTING_DROP_DOWN_LIST_AUTOMATIC = "//div[@data-field='addresses']//option[contains(text(),'Automatic')]"
     IPV6_SETTING_DROP_DOWN_LIST_DHCP_ONLY = "//div[@data-field='addresses']//option[contains(text(),'Automatic (DHCP only)')]"
@@ -171,16 +172,27 @@ class CockpitNetworkingPage(SeleniumTest):
     BOND_SETTING_NAME = "//div[@id='network-bond-settings-dialog']//input[@id='network-bond-settings-interface-name-input']"
     BOND_SETTING_MEMBERS_CHECKBOX_ENO1 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno1')]"
     BOND_SETTING_MEMBERS_CHECKBOX_ENO2 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno2')]"
-    BOND_SETTING_MEMBERS_CHECKBOX_ENO3 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno3')]"
-    BOND_SETTING_MEMBERS_CHECKBOX_ENO4 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno4')]"
-    BOND_SETTING_MAC_LIST = "//div[@id='network-bond-settings-dialog']//button[@class='btn btn-default dropdown-toggle']"
+    # BOND_SETTING_MEMBERS_CHECKBOX_ENO3 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno3')]"
+    BOND_SETTING_MEMBERS_CHECKBOX_ENO3 = "//input[@id='network-bond-settings-interface-members-eno3']"   ###4.5
+    # BOND_SETTING_MEMBERS_CHECKBOX_ENO4 = "//div[@id='network-bond-settings-dialog']//ul[@class='list-group dialog-list-ct']//label/span[contains(text(),'eno4')]"
+    BOND_SETTING_MEMBERS_CHECKBOX_ENO4 = "//input[@id='network-bond-settings-interface-members-eno4']"   ###4.5
+    # BOND_SETTING_MAC_LIST = "//div[@id='network-bond-settings-dialog']//button[@class='btn btn-default dropdown-toggle']"
+    BOND_SETTING_MAC_LIST = "//input[@id='network-bond-settings-mac-input-select-typeahead']"   ###4.5
+
     BOND_SETTING_MAC_ENO1 = "//ul[@id='network-bond-settings-mac-menu']//a[contains(text(),'eno1')]"
-    BOND_SETTING_MAC_ENO3 = "//ul[@id='network-bond-settings-mac-menu']//a[contains(text(),'eno3')]"
+    # BOND_SETTING_MAC_ENO3 = "//ul[@id='network-bond-settings-mac-menu']//a[contains(text(),'eno3')]"
+    BOND_SETTING_MAC_ENO3 = "//div[@id='network-page']/../div[3]/ul/li[3]/button"   ###4.5
+
     # BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='ct-select form-control']"
-    BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']"   ### 4.4.9
-    BOND_SETTING_PRIMARY_ENO1 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno1')]"  ### 4.4.9
-    BOND_SETTING_PRIMARY_ENO3 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno3')]"  ### 4.4.9
-    BOND_SETTING_APPLY = "//div[@id='network-bond-settings-dialog']//button[@id='network-bond-settings-apply']"
+    # BOND_SETTING_PRIMARY_LIST = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']"   ### 4.4.9
+    BOND_SETTING_PRIMARY_LIST = "//select[@id='network-bond-settings-primary-select']"
+    # BOND_SETTING_PRIMARY_ENO1 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno1')]"  ### 4.4.9
+    # BOND_SETTING_PRIMARY_ENO3 = "//div[@id='network-bond-settings-dialog']//select[@class='pf-c-form-control form-control']/option[contains(text(),'eno3')]"  ### 4.4.9
+    BOND_SETTING_PRIMARY_ENO1 = "//select[@id='network-bond-settings-primary-select']/option[contains(text(),'eno1')]"    ###4.5
+    BOND_SETTING_PRIMARY_ENO3 = "//select[@id='network-bond-settings-primary-select']/option[contains(text(),'eno3')]"    ###4.5
+
+    # BOND_SETTING_APPLY = "//div[@id='network-bond-settings-dialog']//button[@id='network-bond-settings-apply']"
+    BOND_SETTING_APPLY = "//button[@id='network-bond-settings-apply']"    ###4.5
     
     #bond mode in Bond page
     BOND_MODE_UNDER_BOND_NAME = "//dl[@id='network-interface-settings']//span[text()='Bond']/../following-sibling::*//span[@class='network-interface-settings-text']"
