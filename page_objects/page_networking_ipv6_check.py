@@ -31,6 +31,7 @@ class CockpitNetworkingIpv6Page(SeleniumTest):
         "4.2_rhvm_fqdn": "bootp-73-199-109.lab.eng.pek2.redhat.com",
         "4.3_rhvm_fqdn": "https://vm-198-110.lab.eng.pek2.redhat.com/ovirt-engine/api",
         "4.4_rhvm_fqdn": "https://vm-198-50.lab.eng.pek2.redhat.com/ovirt-engine/api",
+        "4.4_rhvm_fqdn": "https://bootp-73-199-27.lab.eng.pek2.redhat.com/ovirt-engine/api",
     }
 
     RHVM_COMPUTE_MAP = {
@@ -1427,6 +1428,8 @@ class CockpitNetworkingIpv6Page(SeleniumTest):
             key = "4.3_rhvm_fqdn"
         elif ' 4.4' in system_version:
             key = "4.4_rhvm_fqdn"
+        elif ' 4.5' in system_version:
+            key = "4.5_rhvm_fqdn"
         else:
             progress_log.error("The version of host src build is not 4.0 or 4.1 or 4.2 or 4.3 or 4.4.x")
             return

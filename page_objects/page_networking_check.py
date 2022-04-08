@@ -59,7 +59,8 @@ class CockpitNetworkingPage(SeleniumTest):
     NETWORKING_MENU = "//a[@href='/network']"
 
     #"Reconnect" button after reboot
-    RECONNECT_BUTTON = "//div[@class='blank-slate-pf-main-action']/button[@id='machine-reconnect']"
+    # RECONNECT_BUTTON = "//div[@class='blank-slate-pf-main-action']/button[@id='machine-reconnect']"
+    RECONNECT_BUTTON = "//button[@id='machine-reconnect']"   ### 4.5
 
     #The "System" menu on left side
     SYSTEM_MENU = "//a[@href='/system']"
@@ -123,7 +124,8 @@ class CockpitNetworkingPage(SeleniumTest):
     IPV4_CONFIG_LINK = "//dl[@id='network-interface-settings']//span[text()='IPv4']/../following-sibling::*//button[contains(text(), 'edit')]"
     IPV4_MODE_NAME = "//dl[@id='network-interface-settings']//span[text()='IPv4']/../following-sibling::*//span[@class='network-interface-settings-text']"
     # IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='ct-select col-left']"
-    IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"   ###4.4.9
+    # IPV4_SETTING_DROP_DOWN_LIST = "//div[@id='network-ip-settings-body']//select[@class='pf-c-form-control col-left']"   ###4.4.9
+    IPV4_SETTING_DROP_DOWN_LIST = "//select[@id='network-ip-settings-select-method']"    ### 4.5
     IPV4_SETTING_DROP_DOWN_LIST_AUTOMATIC = "//div[@data-field='addresses']//option[contains(text(),'Automatic (DHCP)')]"
     IPV4_SETTING_DROP_DOWN_LIST_MANUAL= "//div[@data-field='addresses']//option[contains(text(),'Manual')]"
     IPV4_SETTING_DROP_DOWN_LIST_DISABLED= "//div[@data-field='addresses']//option[contains(text(),'Disabled')]"
