@@ -28,6 +28,7 @@ class CockpitNetworkingPage(SeleniumTest):
         "4.2_rhvm_fqdn": "bootp-73-199-109.lab.eng.pek2.redhat.com",
         "4.3_rhvm_fqdn": "https://vm-198-110.lab.eng.pek2.redhat.com/ovirt-engine/api",
         "4.4_rhvm_fqdn": "https://vm-197-137.lab.eng.pek2.redhat.com/ovirt-engine/api",
+        "4.5_rhvm_fqdn": "https://bootp-73-199-27.lab.eng.pek2.redhat.com/ovirt-engine/api",
     }
 
     RHVM_COMPUTE_MAP = {
