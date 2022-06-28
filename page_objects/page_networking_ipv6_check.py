@@ -84,10 +84,11 @@ class CockpitNetworkingIpv6Page(SeleniumTest):
     NETWORK_INFO_NICS_ENO4 = "//div[@id='networking-interfaces']/table/tbody/tr/td[contains(text(),'eno4')]"
 
     #IP Address column after NICs
-    NETWORK_INFO_NICS_ENO1_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno1']/td[@colspan='2']"
-    NETWORK_INFO_NICS_ENO2_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno2']/td[@colspan='2']"
-    NETWORK_INFO_NICS_ENO3_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno3']/td[@colspan='2']"
+    NETWORK_INFO_NICS_ENO1_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno1']/td/span"
+    NETWORK_INFO_NICS_ENO2_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno2']/td/span"
+    NETWORK_INFO_NICS_ENO3_IP_ADDRESS = "//div[@id='networking-interfaces']/table/tbody/tr[@data-interface='eno3']/td/span"
     NETWORK_INFO_NICS_BOND_IP_ADDRESS = "//div[@id='networking-interfaces']//tr[@data-interface='test-bond0']/td"
+    NETWORK_INFO_NICS_BRIDGE_IP_ADDRESS = "//div[@id='networking-interfaces']//tr[@data-interface='test-bridge0']/td"
     NETWORK_INFO_NICS_VLAN_OVER_ENO3_IP_ADDRESS = "//div[@id='networking-interfaces']//tr[@data-interface='eno3.50']/td"
     NETWORK_INFO_NICS_VLAN_OVER_ENO4_IP_ADDRESS = "//div[@id='networking-interfaces']//tr[@data-interface='eno4.50']/td"
     NETWORK_INFO_NICS_VLAN_OVER_BOND_IP_ADDRESS = "//div[@id='networking-interfaces']//tr[@data-interface='test-bond0.50']/td"
